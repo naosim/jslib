@@ -1,4 +1,4 @@
-class TreeNode {
+export class TreeNode {
   /** @type {string} */
   text
   /** @type {number} */
@@ -24,7 +24,7 @@ class TreeNode {
   }
 }
 
-class NestedTextParser {
+export class NestedTextParser {
   static getNestCount(line, divider) {
     const ary = line.split(divider).map(n => n.trim().length);
     for(var i = 0; i < ary.length; i++) {
