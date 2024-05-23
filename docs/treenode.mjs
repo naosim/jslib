@@ -22,6 +22,9 @@ export class TreeNode {
     this.parentNodes = parentNode ? [...parentNode.parentNodes, parentNode] : [];
     this.parentNode?.childNodes.push(this);
   }
+  get isRoot() {
+    return !!this.parentNode;
+  }
 }
 
 export class NestedTextParser {
