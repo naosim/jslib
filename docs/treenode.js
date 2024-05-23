@@ -25,6 +25,13 @@ class TreeNode {
   get isRoot() {
     return !!this.parentNode;
   }
+    /**
+   * @param {(v:TreeNode)=>void} cb 
+   */
+    forEach(cb) {
+      cb(this);
+      this.childNodes.forEach(v => v.forEach(cb));
+    }
 }
 
 class NestedTextParser {

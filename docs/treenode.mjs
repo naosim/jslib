@@ -9,21 +9,31 @@ export class TreeNode {
   parentNodes
   /** @type {TreeNode[]} */
   childNodes = []
+  /** @type {any} user data */
+  data
   /**
    * 
    * @param {string} text 
    * @param {number} nestCount 
    * @param {TreeNode | undefined} parentNode 
    */
-  constructor(text, nestCount, parentNode) {
+  constructor(text, nestCount, parentNode, data) {
     this.text = text.trim();
     this.nestCount = nestCount;
     this.parentNode = parentNode;
     this.parentNodes = parentNode ? [...parentNode.parentNodes, parentNode] : [];
     this.parentNode?.childNodes.push(this);
+    this.data = data;
   }
   get isRoot() {
     return !!this.parentNode;
+  }
+  /**
+   * @param {(v:TreeNode)=>void} cb 
+   */
+  forEach(cb) {
+    cb(this);
+    this.childNodes.forEach(v => v.forEach(cb));
   }
 }
 
