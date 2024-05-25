@@ -25,7 +25,7 @@ class TreeNode {
     return this.parentNodes.length;
   }
   get isRoot() {
-    return !!this.parentNode;
+    return !this.parentNode;
   }
   /**
    * @param {(v:TreeNode)=>void} cb 
